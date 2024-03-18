@@ -12,7 +12,7 @@ CFLAGS = -mmcu=$(MCU) \
 	 -F_CPU=$(F_CPU) \
 	 -Os \
 
-FILE = ext_isr
+FILE = pcnt_isr
 
 SRC = $(FILE).c
 
