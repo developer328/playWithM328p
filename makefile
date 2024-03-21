@@ -12,8 +12,8 @@ CFLAGS = -mmcu=$(MCU) \
 	 -F_CPU=$(F_CPU) \
 	 -Os \
 
-FILE = pcnt_isr
-
+FILE = t0_norm
+	
 SRC = $(FILE).c
 
 OBJ = $(FILE).o
