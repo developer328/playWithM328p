@@ -1,5 +1,8 @@
+//CTC
+
 /*
  * 26-MAR-2024
+ * 27-MAR-2024 - toggle pin6 on timer0
  */
 
 #include <avr/io.h>
@@ -10,8 +13,9 @@
 volatile uint8_t Lval = 0, B_flag = 0, M_flag = 0;
 
 int main(void){
-	DDRB |= (1<<1) | (1<<5);
-	TCCR0A |= (1<<WGM01);
+	DDRB |= (1<<5);// | (1<<1);
+	DDRD |= (1<<6);
+	TCCR0A |= (1<<WGM01) | (1<<COM0A0);
 	TCCR0B |= (1<<CS02) | (1<<CS00);
 	TIMSK0 |= (1<<OCIE0A);
 	OCR0A = 0;
@@ -28,8 +32,8 @@ int main(void){
 }
 
 ISR(TIMER0_COMPA_vect){
-	Lval = !Lval;
-	PORTB = (Lval<<1) | (PORTB & ~(1<<1));
+//	Lval = !Lval;
+//	PORTB = (Lval<<1) | (PORTB & ~(1<<1));
 
 	if(OCR0A >= 255){
 		B_flag = 0;
