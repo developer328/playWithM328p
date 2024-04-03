@@ -12,7 +12,7 @@ CFLAGS = -mmcu=$(MCU) \
 	 -F_CPU=$(F_CPU) \
 	 -Os \
 
-FILE = t1_norm
+FILE = t1_ctc_ocr
 
 SRC = $(FILE).c
 
